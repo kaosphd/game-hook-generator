@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Game Hook Generator v1.0</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <h1>Game Hook & Scenario Seed Generator</h1>
+
+  <div class="generator">
+
+    <button onclick="generate('Where', 'whereOutput')">
+      Random Setting
+    </button>
+    <div id="whereOutput" class="output"></div>
+
+    <button onclick="generate('When', 'whenOutput')">
+      Random Time
+    </button>
+    <div id="whenOutput" class="output"></div>
+
+    <button onclick="generate('Why', 'whyOutput')">
+      Random Goal or Aim
+    </button>
+    <div id="whenOutput" class="output"></div>
+
+    <button onclick="generate('How', 'howOutput')">
+      Random Mode of Play
+    </button>
+    <div id="howOutput" class="output"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
