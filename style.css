@@ -2,14 +2,19 @@ body {
   font-family: Arial, sans-serif;
   background: #111;
   color: white;
-  padding: 20px;
   margin: 0;
+  padding: 20px;
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #bbb;
   margin-bottom: 30px;
-  font-size: 2rem;
 }
 
 .generator {
@@ -21,15 +26,18 @@ button {
   width: 100%;
   padding: 18px;
   margin-top: 16px;
+
   border: none;
   border-radius: 14px;
+
   font-size: 18px;
   font-weight: bold;
   color: white;
+
   cursor: pointer;
 
   transition:
-    transform 0.15s ease,
+    transform 0.12s ease,
     opacity 0.2s ease;
 }
 
@@ -41,12 +49,25 @@ button:active {
   transform: scale(0.98);
 }
 
-/* =========================================
-   CATEGORY COLOURS
-========================================= */
+.output {
+  background: #1d1d1d;
+  border: 1px solid #333;
+
+  padding: 20px;
+  margin-top: 8px;
+
+  border-radius: 12px;
+
+  min-height: 28px;
+
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* CATEGORY COLOURS */
 
 .who {
-  background: #e63946;
+  background: #d62828;
 }
 
 .where {
@@ -77,24 +98,7 @@ button:active {
   background: #8d99ae;
 }
 
-/* =========================================
-   OUTPUT BOXES
-========================================= */
-
-.output {
-  background: #1e1e1e;
-  padding: 20px;
-  margin-top: 8px;
-  border-radius: 12px;
-  min-height: 28px;
-  font-size: 18px;
-  line-height: 1.5;
-  border: 1px solid #333;
-}
-
-/* =========================================
-   MOBILE IMPROVEMENTS
-========================================= */
+/* MOBILE */
 
 @media (max-width: 600px) {
 
@@ -103,12 +107,11 @@ button:active {
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   button {
     font-size: 17px;
-    padding: 16px;
   }
 
   .output {
