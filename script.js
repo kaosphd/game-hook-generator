@@ -86,8 +86,16 @@ function generate(sheetName, outputId) {
   const randomItem =
     entries[Math.floor(Math.random() * entries.length)];
 
-  document.getElementById(outputId).innerText =
-    randomItem;
+  const outputElement =
+  document.getElementById(outputId);
+
+if (!outputElement) {
+
+  console.error(`Missing output element: ${outputId}`);
+  return;
+}
+
+outputElement.innerText = randomItem;
 }
 
 // ==========================================
