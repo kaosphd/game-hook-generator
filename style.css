@@ -9,6 +9,7 @@ body {
 h1 {
   text-align: center;
   margin-bottom: 30px;
+  font-size: 2rem;
 }
 
 .generator {
@@ -18,19 +19,99 @@ h1 {
 
 button {
   width: 100%;
-  padding: 16px;
-  margin-top: 15px;
+  padding: 18px;
+  margin-top: 16px;
   border: none;
-  border-radius: 10px;
+  border-radius: 14px;
   font-size: 18px;
+  font-weight: bold;
+  color: white;
   cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    opacity 0.2s ease;
 }
 
+button:hover {
+  opacity: 0.92;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* =========================================
+   CATEGORY COLOURS
+========================================= */
+
+.who {
+  background: #e63946;
+}
+
+.where {
+  background: #457b9d;
+}
+
+.when {
+  background: #6a4c93;
+}
+
+.what {
+  background: #2a9d8f;
+}
+
+.why {
+  background: #f4a261;
+}
+
+.how {
+  background: #e76f51;
+}
+
+.working {
+  background: #264653;
+}
+
+.tone {
+  background: #8d99ae;
+}
+
+/* =========================================
+   OUTPUT BOXES
+========================================= */
+
 .output {
-  background: #222;
+  background: #1e1e1e;
   padding: 20px;
   margin-top: 8px;
-  border-radius: 10px;
-  min-height: 24px;
+  border-radius: 12px;
+  min-height: 28px;
   font-size: 18px;
+  line-height: 1.5;
+  border: 1px solid #333;
+}
+
+/* =========================================
+   MOBILE IMPROVEMENTS
+========================================= */
+
+@media (max-width: 600px) {
+
+  body {
+    padding: 14px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 17px;
+    padding: 16px;
+  }
+
+  .output {
+    font-size: 17px;
+  }
 }
