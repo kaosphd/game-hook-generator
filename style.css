@@ -32,7 +32,12 @@ button {
 
   font-size: 18px;
   font-weight: bold;
-  color: white;
+  
+  background: #333;   /* fallback base */
+  color: #fff;
+
+  background-clip: padding-box;
+  -webkit-font-smoothing: antialiased;
 
   cursor: pointer;
 
@@ -40,6 +45,8 @@ button {
     transform 0.12s ease,
     opacity 0.2s ease;
 }
+
+
 
 button:hover {
   opacity: 0.92;
@@ -91,7 +98,8 @@ button:active {
 }
 
 .workingIn {
-  background: #50287a;
+  background: #1f3b44; /* slightly brighter + more contrast than #264653 */
+  color: #ffffff;
 }
 
 .adjective {
