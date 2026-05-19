@@ -3,65 +3,62 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Game Hook Generator v1.0</title>
+  <title>Game Hook Generator v1.1</title>
 
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <h1>Game Hook & Scenario Seed Generator</h1>
+  <h1>Game Hook Generator</h1>
+
+  <p class="subtitle">
+    Tap categories to generate random scenario seeds.
+  </p>
 
   <div class="generator">
 
-    <button class="who" onclick="generate('Who', 'whoOutput')">
+    <button class="who" data-sheet="Who" data-output="whoOutput">
       You are...
     </button>
     <div id="whoOutput" class="output"></div>
 
-
-    <button class="where" onclick="generate('Where', 'whereOutput')">
+    <button class="where" data-sheet="Where" data-output="whereOutput">
       In...
     </button>
     <div id="whereOutput" class="output"></div>
 
-
-    <button class="when" onclick="generate('When', 'whenOutput')">
+    <button class="when" data-sheet="When" data-output="whenOutput">
       When...
     </button>
     <div id="whenOutput" class="output"></div>
 
-
-    <button class="what" onclick="generate('What', 'whatOutput')">
+    <button class="what" data-sheet="What" data-output="whatOutput">
       Trying to...
     </button>
     <div id="whatOutput" class="output"></div>
 
-
-    <button class="why" onclick="generate('Why', 'whyOutput')">
+    <button class="why" data-sheet="Why" data-output="whyOutput">
       In order to...
     </button>
     <div id="whyOutput" class="output"></div>
 
-
-    <button class="how" onclick="generate('How', 'howOutput')">
+    <button class="how" data-sheet="How" data-output="howOutput">
       By...
     </button>
     <div id="howOutput" class="output"></div>
 
-
-    <button class="working" onclick="generate('WorkingIn', 'workingInOutput')">
+    <button class="working" data-sheet="WorkingIn" data-output="workingOutput">
       Working as...
     </button>
-    <div id="workingInOutput" class="output"></div>
+    <div id="workingOutput" class="output"></div>
 
-
-    <button class="tone" onclick="generate('Adjective', 'adjectiveOutput')">
+    <button class="tone" data-sheet="Adjective" data-output="toneOutput">
       With tone or feeling...
     </button>
-    <div id="adjectiveOutput" class="output"></div>
+    <div id="toneOutput" class="output"></div>
 
   </div>
 
