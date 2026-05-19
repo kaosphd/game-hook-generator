@@ -1,5 +1,5 @@
 // ==========================================
-// GOOGLE SHEET CSV URLS
+// SHEET URLS
 // ==========================================
 
 const sheetURLs = {
@@ -30,29 +30,58 @@ const sheetURLs = {
 };
 
 // ==========================================
-// FETCH SHEET DATA
+// CACHE
 // ==========================================
 
-async function fetchSheet(tabName) {
+const cachedData = {};
 
-  const response = await fetch(sheetURLs[tabName]);
+// ==========================================
+// LOAD ALL SHEETS
+// ==========================================
 
-  const data = await response.text();
+async function preloadSheets() {
 
-  return data
-    .split("\n")
-    .slice(1)
-    .map(row => row.trim())
-    .filter(row => row !== "");
+  for (const key in sheetURLs) {
+
+    try {
+
+      const response = await fetch(sheetURLs[key]);
+
+      const text = await response.text();
+
+      cachedData[key] = text
+        .split("\n")
+        .slice(1)
+        .map(row => row.trim())
+        .filter(row => row !== "");
+
+      console.log(`Loaded: ${key}`);
+
+    } catch (error) {
+
+      console.error(`Failed loading ${key}`, error);
+
+    }
+  }
+
+  console.log("All sheets preloaded.");
 }
 
 // ==========================================
-// RANDOM GENERATOR
+// GENERATE RANDOM ITEM
 // ==========================================
 
-async function generate(tabName, outputId) {
+function generate(sheetName, outputId) {
 
-  const entries = await fetchSheet(tabName);
+  const entries = cachedData[sheetName];
+
+  if (!entries || entries.length === 0) {
+
+    document.getElementById(outputId).innerText =
+      "No data loaded.";
+
+    return;
+  }
 
   const randomItem =
     entries[Math.floor(Math.random() * entries.length)];
@@ -60,3 +89,28 @@ async function generate(tabName, outputId) {
   document.getElementById(outputId).innerText =
     randomItem;
 }
+
+// ==========================================
+// BUTTON EVENTS
+// ==========================================
+
+document.querySelectorAll("button").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const sheet =
+      button.dataset.sheet;
+
+    const output =
+      button.dataset.output;
+
+    generate(sheet, output);
+
+  });
+});
+
+// ==========================================
+// STARTUP
+// ==========================================
+
+preloadSheets();
